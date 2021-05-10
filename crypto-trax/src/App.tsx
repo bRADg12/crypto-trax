@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import "./App.css";
 import { makeStyles, Theme, createMuiTheme, createStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Link, Route, Switch, useHistory } from "react-router-dom";
-import Nav from './Nav/Nav';
 import { AppBar, CssBaseline, IconButton, ThemeProvider, Toolbar, useTheme } from '@material-ui/core';
 import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
@@ -223,13 +222,13 @@ const App: React.FC<MappedPropsType> = () => {
           <div className={classes.toolbar} />
           <Switch>
             <Route exact path="/">
-                
+                Welcome
             </Route>
             <Route path="/portfolio">
-              
+              Portfolio
             </Route>
             <Route path="/prices">
-              
+              Prices
             </Route>
           </Switch>
         </main>
