@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import "./App.css";
 import { makeStyles, Theme, createMuiTheme, createStyles } from '@material-ui/core/styles';
-import { BrowserRouter as Router, Link, Route, Switch, useHistory } from "react-router-dom";
-import { AppBar, CssBaseline, IconButton, ThemeProvider, Toolbar, useTheme } from '@material-ui/core';
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { AppBar, CssBaseline, IconButton, ThemeProvider, Toolbar } from '@material-ui/core';
 import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -18,6 +18,9 @@ import PieChartIcon from '@material-ui/icons/PieChart';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import HomeIcon from '@material-ui/icons/Home';
+import HomePage from './components/HomePage';
+import Portfolio from './components/Portfolio';
+import Prices from './components/Prices';
 
 const drawerWidth = 240;
 
@@ -104,7 +107,6 @@ const App: React.FC<MappedPropsType> = () => {
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const history = useHistory();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -113,10 +115,6 @@ const App: React.FC<MappedPropsType> = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
-  const routeToHome = () => {
-    history.push('/home');
-  }
 
   let localDarkState = localStorage.getItem("DARK_MODE");
   const darkState = (localDarkState === 'true');
@@ -222,13 +220,13 @@ const App: React.FC<MappedPropsType> = () => {
           <div className={classes.toolbar} />
           <Switch>
             <Route exact path="/">
-                Welcome
+              <HomePage />
             </Route>
             <Route path="/portfolio">
-              Portfolio
+              <Portfolio />
             </Route>
             <Route path="/prices">
-              Prices
+              <Prices />
             </Route>
           </Switch>
         </main>
